@@ -3,7 +3,11 @@
 
 :root {
   --header-height: 60px;
-
+  --search-height: 46px;
+  --search-border-radius: 999px;
+  // Colors
+  --color-text: #333;
+  --color-black: #ccc;
   // Default layout
   --default-layout-header-height: 60px;
   --default-layout-width: 1150px;
@@ -25,6 +29,18 @@ body {
   text-rendering: optimizeSpeed;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+button,
+input,
+[tabindex] {
+  outline: none;
+  border: none;
 }
