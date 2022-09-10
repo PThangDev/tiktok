@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import GlobalStyles from './components/GlobalStyles';
 import DefaultLayout from './layouts/DefaultLayout';
 import { publicRoutes } from './routes';
+import 'tippy.js/dist/tippy.css';
+
 const App = () => {
   return (
     <Router>
