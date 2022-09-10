@@ -4,13 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import classNames from 'classnames/bind';
 import styles from './AccountItem.module.scss';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
 const AccountItem = () => {
   return (
     <div className={cx('wrapper')}>
-      <img
+      <Image
         className={cx('avatar')}
         src="https://imgt.taimienphi.vn/cf/Images/np/2021/11/26/hinh-anh-avatar-dep-5.jpg"
         alt=""

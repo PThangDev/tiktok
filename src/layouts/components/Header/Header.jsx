@@ -21,6 +21,8 @@ import { useEffect, useState } from 'react';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import LogoIcon from '~/components/Icons/LogoIcon';
+import Image from '~/components/Image';
 import { PopperWrapper } from '~/components/Popper';
 import Menu from '~/components/Popper/Menu';
 import styles from './Header.module.scss';
@@ -123,7 +125,7 @@ const Header = () => {
   const renderOptionMenu = () => {
     if (IS_AUTHENTICATE) {
       return (
-        <img
+        <Image
           className={cx('user-avatar')}
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNlnFOSmJwiqpYy85b5cGj2bgeKvNcBrmuDg&usqp=CAU"
           alt="avatar"
@@ -142,7 +144,7 @@ const Header = () => {
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
         <div className={cx('logo')}>
-          <img src={images.logo} alt="" />
+          <LogoIcon />
         </div>
         <HeadlessTippy
           interactive
