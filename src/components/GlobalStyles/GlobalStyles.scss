@@ -1,5 +1,5 @@
+@import './utils/fonts';
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 :root {
   --header-height: 60px;
@@ -7,7 +7,7 @@
   --search-border-radius: 999px;
   // Colors
   --primary-color: #fe2c55;
-  --text-color: #333;
+  --text-color: #161823;
   --black-color: #ccc;
   --white-color: #fff;
   // Default layout
@@ -24,7 +24,7 @@ html {
   font-size: 62.5%;
 }
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'ProximaNova', sans-serif;
   font-size: 1.6rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,4 +45,27 @@ input,
 [tabindex] {
   outline: none;
   border: none;
+}
+
+// Custom tooltip tippy
+body {
+  .tippy-box {
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    background-color: rgba(84, 84, 84, 0.92);
+  }
+
+  .tippy-arrow {
+    color: rgba(84, 84, 84, 0.92);
+  }
+
+  .tippy-content {
+    padding: 8px 9px;
+  }
+
+  .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+    top: -8px;
+  }
 }

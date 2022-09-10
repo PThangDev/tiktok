@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import 'tippy.js/dist/tippy.css';
+
 import GlobalStyles from './components/GlobalStyles';
 import DefaultLayout from './layouts/DefaultLayout';
 import { publicRoutes } from './routes';
-import 'tippy.js/dist/tippy.css';
 
 const App = () => {
   return (
