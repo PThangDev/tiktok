@@ -5,25 +5,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
 import styles from './AccountItem.module.scss';
 import Image from '~/components/Image';
+import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-const AccountItem = () => {
+const AccountItem = ({ data, onHideResult = () => {} }) => {
   return (
-    <div className={cx('wrapper')}>
-      <Image
-        className={cx('avatar')}
-        src="https://imgt.taimienphi.vn/cf/Images/np/2021/11/26/hinh-anh-avatar-dep-5.jpg"
-        alt=""
-      />
+    <Link to={`/@${data.nickname}`} className={cx('wrapper')} onClick={onHideResult}>
+      <Image className={cx('avatar')} src={data.avatar} alt="" />
       <div className={cx('info')}>
         <h4 className={cx('name')}>
-          <span>Pham Thang Jr</span>
+          <span>{data.full_name}</span>
           <FontAwesomeIcon className={cx('check-icon')} icon={faCheckCircle} />
         </h4>
-        <span className={cx('username')}>nguyenvana</span>
+        <span className={cx('username')}>{data.nickname}</span>
       </div>
-    </div>
+    </Link>
   );
 };
 
