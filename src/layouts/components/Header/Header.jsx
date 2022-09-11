@@ -2,7 +2,6 @@ import { faCloudUpload, faEllipsisVertical } from '@fortawesome/free-solid-svg-i
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
 import classNames from 'classnames/bind';
-import { useState } from 'react';
 
 import Button from '~/components/Button';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
@@ -19,8 +18,6 @@ const cx = classNames.bind(styles);
 const IS_AUTHENTICATE = true;
 
 const Header = () => {
-  const [dataSearch, setDataSearch] = useState([]);
-
   const handleChangeMenuItem = (menuItem) => {
     console.log(menuItem);
   };
