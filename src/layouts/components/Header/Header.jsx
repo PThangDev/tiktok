@@ -1,32 +1,26 @@
 import {
   faCircleQuestion,
-  faCircleXmark,
   faCloudUpload,
   faCoins,
   faEarthAsia,
   faEllipsisVertical,
   faGear,
   faKeyboard,
-  faMagnifyingGlass,
   faSignOut,
-  faSpinner,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import images from '~/assets/images';
-import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import LogoIcon from '~/components/Icons/LogoIcon';
 import Image from '~/components/Image';
-import { PopperWrapper } from '~/components/Popper';
 import Menu from '~/components/Popper/Menu';
 import styles from './Header.module.scss';
-import searchResults from './searchResults';
+import Search from './Search';
 
 const cx = classNames.bind(styles);
 
@@ -87,24 +81,31 @@ const IS_AUTHENTICATE = true;
 const Header = () => {
   const [dataSearch, setDataSearch] = useState([]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setDataSearch(searchResults);
-    }, 3000);
-  }, []);
-
-  const handleChangeMenuItem = (data) => {
-    console.log(data);
+  const handleChangeMenuItem = (menuItem) => {
+    console.log(menuItem);
   };
 
   const renderRightHeader = () => {
     if (IS_AUTHENTICATE) {
       return (
-        <Tippy delay={[0, 200]} content="Upload Video">
-          <button className={cx('action-btn')}>
-            <FontAwesomeIcon icon={faCloudUpload} />
-          </button>
-        </Tippy>
+        <>
+          <Tippy delay={[0, 200]} content="Upload Video">
+            <button className={cx('action-btn')}>
+              <UploadIcon />
+            </button>
+          </Tippy>
+          <Tippy delay={[0, 200]} content="Message">
+            <button className={cx('action-btn')}>
+              <MessageIcon />
+            </button>
+          </Tippy>
+          <Tippy delay={[0, 200]} content="Inbox">
+            <button className={cx('action-btn')}>
+              <InboxIcon />
+              <span className={cx('badge')}>12</span>
+            </button>
+          </Tippy>
+        </>
       );
     } else {
       return (
@@ -146,36 +147,8 @@ const Header = () => {
         <div className={cx('logo')}>
           <LogoIcon />
         </div>
-        <HeadlessTippy
-          interactive
-          // visible={dataSearch.length > 0}
-          // visible
-          render={(attrs) => (
-            <div className={cx('search-result')} {...attrs} tabIndex={-1}>
-              <PopperWrapper>
-                <h3 className={cx('search-title')}>Accounts</h3>
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-                <AccountItem />
-              </PopperWrapper>
-            </div>
-          )}
-        >
-          <div className={cx('search')}>
-            <input type="text" placeholder="Search accounts and videos" spellCheck={false} />
-            <button className={cx('clear-btn')}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-              {/* Icon */}
-            </button>
-            {/* Loading */}
-            <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-            <button className={cx('search-btn')}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </button>
-          </div>
-        </HeadlessTippy>
-
+        {/* Search */}
+        <Search />
         {/* Actions */}
         <div className={cx('actions')}>
           {renderRightHeader()}
