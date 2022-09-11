@@ -47,8 +47,11 @@ const Search = () => {
   }, [debouncedSearchValue]);
 
   const handleChangeInput = (e) => {
-    const value = e.target.value;
-    setSearchValue(value);
+    const searchValue = e.target.value;
+
+    if (searchValue.startsWith(' ')) return;
+
+    setSearchValue(searchValue);
   };
 
   const handleClearInputSearch = () => {
@@ -65,6 +68,10 @@ const Search = () => {
   };
   const handleShowResult = () => {
     setShowResult(true);
+  };
+
+  const handleSubmitFormSearch = async (e) => {
+    e.preventDefault();
   };
 
   return (
@@ -84,7 +91,7 @@ const Search = () => {
         </div>
       )}
     >
-      <div className={cx('search')}>
+      <form className={cx('search')} onSubmit={handleSubmitFormSearch}>
         <input
           type="text"
           placeholder="Search accounts and videos"
@@ -103,10 +110,14 @@ const Search = () => {
 
         {/* Loading */}
         {isLoading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
-        <button className={cx('search-btn', { active: !!searchValue })}>
+        <button
+          type="submit"
+          className={cx('search-btn', { active: !!searchValue })}
+          onMouseDown={(e) => e.preventDefault()}
+        >
           <SearchIcon />
         </button>
-      </div>
+      </form>
     </HeadlessTippy>
   );
 };

@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-const Menu = ({ children, items = [], onChange = () => {} }) => {
+const Menu = ({ children, items = [], hideOnClick = false, onChange = () => {} }) => {
   const [history, setHistory] = useState([{ data: items, title: '' }]);
 
   const currentMenu = history[history.length - 1];
@@ -40,6 +40,7 @@ const Menu = ({ children, items = [], onChange = () => {} }) => {
     <HeadlessTippy
       interactive
       // visible
+      hideOnClick={hideOnClick}
       offset={[12, 8]}
       delay={[0, 700]}
       placement="bottom-end"

@@ -4,7 +4,7 @@ import 'tippy.js/dist/tippy.css';
 
 import GlobalStyles from './components/GlobalStyles';
 import DefaultLayout from './layouts/DefaultLayout';
-import { publicRoutes } from './routes';
+import { publicRoutes } from './routes/routes';
 
 const App = () => {
   return (

@@ -14,6 +14,7 @@
   justify-content: space-between;
 }
 .logo {
+  display: flex;
 }
 
 // Search
@@ -52,7 +53,7 @@
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--white-color);
-  font-family: 'ProximaNova', sans-serif;
+  font-family: var(--primary-font-family);
   background-color: var(--primary-color);
 }
 
