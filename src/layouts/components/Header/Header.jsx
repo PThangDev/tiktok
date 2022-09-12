@@ -8,7 +8,7 @@ import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import LogoIcon from '~/components/Icons/LogoIcon';
 import Image from '~/components/Image';
 import Menu from '~/components/Popper/Menu';
-import { routeConfigs } from '~/configs';
+import configs from '~/configs';
 import styles from './Header.module.scss';
 import { menuItems, userMenuItems } from './menuItems';
 import Search from './Search';
@@ -81,7 +81,7 @@ const Header = () => {
   return (
     <header className={cx('wrapper')}>
       <div className={cx('inner')}>
-        <a href={routeConfigs.home} className={cx('logo')}>
+        <a href={configs.routes.home} className={cx('logo')}>
           <LogoIcon />
         </a>
         {/* Search */}

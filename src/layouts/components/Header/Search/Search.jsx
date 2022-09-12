@@ -8,6 +8,7 @@ import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons';
 import { PopperWrapper } from '~/components/Popper';
 import { useDebounce } from '~/hooks';
+import searchService from '~/services/searchService';
 import httpRequest from '~/utils/httpRequest';
 import styles from './Search.module.scss';
 
@@ -26,6 +27,7 @@ const Search = () => {
   useEffect(() => {
     if (!debouncedSearchValue.trim()) {
       setSearchResult([]);
+      setIsLoading(false);
       return;
     }
 
@@ -33,9 +35,9 @@ const Search = () => {
       try {
         setIsLoading(true);
 
-        const response = await httpRequest.get('/users/search', { params: { q: debouncedSearchValue, type: 'less' } });
+        const result = await searchService.search(debouncedSearchValue);
 
-        setSearchResult(response.data);
+        setSearchResult(result);
         setIsLoading(false);
       } catch (error) {
         console.log(error);

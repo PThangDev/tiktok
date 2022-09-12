@@ -1,4 +1,4 @@
-import { routeConfigs } from '~/configs';
+import configs from '~/configs';
 import HeaderOnly from '~/layouts/HeaderOnly';
 import FollowingPage from '~/pages/following';
 import HomePage from '~/pages/home';
@@ -7,11 +7,11 @@ import ProfilePage from '~/pages/profile';
 import UploadPage from '~/pages/upload';
 
 export const publicRoutes = [
-  { path: routeConfigs.home, component: HomePage },
-  { path: routeConfigs.following, component: FollowingPage },
-  { path: routeConfigs.profile, component: ProfilePage },
-  { path: routeConfigs.profile, component: ProfilePage },
-  { path: routeConfigs.upload, component: UploadPage, layout: HeaderOnly },
+  { path: configs.routes.home, component: HomePage },
+  { path: configs.routes.following, component: FollowingPage },
+  { path: configs.routes.profile, component: ProfilePage },
+  { path: configs.routes.profile, component: ProfilePage },
+  { path: configs.routes.upload, component: UploadPage, layout: HeaderOnly },
   { path: '*', component: NotFoundPage, layout: null },
 ];
 

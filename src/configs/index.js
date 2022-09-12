@@ -1,2 +1,9 @@
-export { default as routeConfigs } from './routeConfigs';
-export { default as languages } from './languages';
+import languages from './languages';
+import routeConfigs from './routeConfigs';
+
+const configs = {
+  routes: routeConfigs,
+  languages,
+};
+
+export default configs;

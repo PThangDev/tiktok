@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { languages, routeConfigs } from '~/configs';
+import configs from '~/configs';
 
 export const menuItems = [
   {
@@ -17,13 +17,13 @@ export const menuItems = [
     title: 'Tiếng Việt',
     children: {
       title: 'Language',
-      data: languages,
+      data: configs.languages,
     },
   },
   {
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
     title: 'Feedback and help',
-    to: routeConfigs.feedback,
+    to: configs.routes.feedback,
   },
   {
     icon: <FontAwesomeIcon icon={faKeyboard} />,
@@ -35,23 +35,23 @@ export const userMenuItems = [
   {
     icon: <FontAwesomeIcon icon={faUser} />,
     title: 'View profile',
-    to: routeConfigs.profile,
+    to: configs.routes.profile,
   },
   {
     icon: <FontAwesomeIcon icon={faCoins} />,
     title: 'Get coins',
-    to: routeConfigs.coin,
+    to: configs.routes.coin,
   },
   {
     icon: <FontAwesomeIcon icon={faGear} />,
     title: 'Settings',
-    to: routeConfigs.settings,
+    to: configs.routes.settings,
   },
   ...menuItems,
   {
     icon: <FontAwesomeIcon icon={faSignOut} />,
     title: 'Log out',
-    to: routeConfigs.logout,
+    to: configs.routes.logout,
     separate: true,
   },
 ];
