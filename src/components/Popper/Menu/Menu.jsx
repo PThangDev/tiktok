@@ -49,7 +49,7 @@ const Menu = ({ children, items = [], hideOnClick = false, onChange = () => {} }
         <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
           <PopperWrapper className={cx('menu-popper')}>
             {history.length > 1 && <MenuHeader title={currentMenu.title} onBack={handleBackMenu} />}
-            {renderItems()}
+            <div className={cx('menu-body')}>{renderItems()}</div>
           </PopperWrapper>
         </div>
       )}
